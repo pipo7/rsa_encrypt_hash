@@ -48,9 +48,9 @@ func main() {
 		The hash that we used to encrypt the data
 	*/
 	decryptedBytes, err := privatekey.Decrypt(
-		nil,                                   // reader
+		nil,                                   // // The first argument is an optional random data generator (the rand.Reader we used before)
 		encryptedBytes,                        // encrypted or cipher text
-		&rsa.OAEPOptions{Hash: crypto.SHA512}, // hash used earlier while encryption
+		&rsa.OAEPOptions{Hash: crypto.SHA512}, // hash used earlier while encryption, The OEAPOptions in the end signify that we encrypted the data using OEAP.
 	)
 	if err != nil {
 		panic(err)
